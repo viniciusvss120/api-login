@@ -43,10 +43,10 @@ class Users{
         }
     }
 
-    async create(name,email,password,telefone){
+    async create(name,email,password,telefone,category){
         try {
             let hash = await bcrypt.hash(password, 10)
-            await database.insert({name, email, password: hash, telefone}).table('users')
+            await database.insert({name, email, password: hash, telefone,category}).table('users')
         } catch (error) {
             console.log("Deu ruim", error)
             return []

@@ -98,13 +98,13 @@ class UserController{
     }
 
     async createUser(req,res){
-        let {name,email,password,telefone} = req.body
+        let {name,email,password,telefone,category} = req.body
 
         if(email == undefined || password == undefined || telefone == undefined){
             res.send("Dados invalidos!!")
         }
 
-        await Users.create(name,email,password,telefone)
+        await Users.create(name,email,password,telefone,category)
         res.status(200)
         res.send("Deu certo!")
     }
